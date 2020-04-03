@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="3" out_port_id="3"/>
+		<IR id="1" name="4/1_port_transpose111_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="5" out_port_id="0"/>
+		<IR id="4" name="5" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="4" out_port_id="4"/>
+		<IR id="2" name="4" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="input" out_port_id="input"/>
+		<IR id="0" name="input" out_port_id="0"/>
+	</map>
+</mapping>

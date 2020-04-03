@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="dense_2_1/MatMul" out_port_id="0"/>
+		<IR id="12" name="dense_2_1/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dense_2_1/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="11" name="dense_2_1/MatMul/1_port_transpose357_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dense_1_1/BiasAdd" out_port_id="0"/>
+		<IR id="9" name="dense_1_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dense_2_1/BiasAdd" out_port_id="0"/>
+		<IR id="14" name="dense_2_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dense_1_1/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="6" name="dense_1_1/MatMul/1_port_transpose353_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dense_3/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="1" name="dense_3/MatMul/1_port_transpose349_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dense_3/Relu" out_port_id="0"/>
+		<IR id="5" name="dense_3/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dense_3/BiasAdd" out_port_id="0"/>
+		<IR id="4" name="dense_3/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dense_1_1/MatMul" out_port_id="0"/>
+		<IR id="7" name="dense_1_1/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="dense_input_1" out_port_id="0"/>
+		<IR id="0" name="dense_input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="dense_1_1/Relu" out_port_id="0"/>
+		<IR id="10" name="dense_1_1/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="dense_3/MatMul" out_port_id="0"/>
+		<IR id="2" name="dense_3/MatMul" out_port_id="2"/>
+	</map>
+</mapping>

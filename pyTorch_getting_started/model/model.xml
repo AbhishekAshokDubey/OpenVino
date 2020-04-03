@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<net name="model" version="10">
+	<layers>
+		<layer id="0" name="input" type="Parameter" version="opset1">
+			<data element_type="f32" shape="1,2"/>
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="4/1_port_transpose111_const" type="Const" version="opset1">
+			<data element_type="f32" offset="0" shape="1,2" size="8"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="2" name="4" type="MatMul" version="opset1">
+			<data transpose_a="False" transpose_b="True"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="3" name="onnx_initializer_node_lin.bias/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="8" shape="1,1" size="4"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="5" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="5/sink_port_0" type="Result" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="0" to-layer="2" to-port="0"/>
+		<edge from-layer="1" from-port="1" to-layer="2" to-port="1"/>
+		<edge from-layer="2" from-port="2" to-layer="4" to-port="0"/>
+		<edge from-layer="3" from-port="1" to-layer="4" to-port="1"/>
+		<edge from-layer="4" from-port="2" to-layer="5" to-port="0"/>
+	</edges>
+	<meta_data>
+		<MO_version value="2020.1.0-61-gd349c3ba4a"/>
+		<cli_parameters>
+			<blobs_as_inputs value="True"/>
+			<data_type value="FP32"/>
+			<disable_resnet_optimization value="False"/>
+			<enable_concat_optimization value="False"/>
+			<extensions value="DIR"/>
+			<framework value="onnx"/>
+			<freeze_placeholder_with_value value="{}"/>
+			<generate_deprecated_IR_V2 value="False"/>
+			<generate_deprecated_IR_V7 value="False"/>
+			<generate_experimental_IR_V10 value="True"/>
+			<input_model value="DIR\model.onnx"/>
+			<input_shape value="[1,2]"/>
+			<keep_quantize_ops_in_IR value="True"/>
+			<keep_shape_ops value="False"/>
+			<log_level value="DEBUG"/>
+			<mean_scale_values value="{}"/>
+			<mean_values value="()"/>
+			<model_name value="DIR"/>
+			<move_to_preprocess value="False"/>
+			<output_dir value="DIR"/>
+			<placeholder_data_types value="{}"/>
+			<placeholder_shapes value="[1 2]"/>
+			<progress value="False"/>
+			<reverse_input_channels value="False"/>
+			<scale_values value="()"/>
+			<silent value="False"/>
+			<stream_output value="False"/>
+			<unset unset_cli_parameters="batch, disable_fusing, disable_gfusing, finegrain_fusing, input, output, scale, transformations_config"/>
+		</cli_parameters>
+	</meta_data>
+</net>
